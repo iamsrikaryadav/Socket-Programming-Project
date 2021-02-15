@@ -1,0 +1,197 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+header{
+	/* styling header tag*/
+    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(../WEAPONSBACKGROUND.jpg);
+    background-repeat: repeat-y;
+    background-repeat: repeat-x;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+body{
+    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(../WEAPONSBACKGROUND.jpg);
+    background-repeat: repeat-y;
+    background-repeat: repeat-x;
+    background-size: cover;
+    background-position: center;
+}
+
+ul{
+	/* styling ul tag */
+    float: right;
+	font-weight: bolder;
+    list-style-type: none;
+    margin-top: 40px;
+}
+ul li{
+	/* styling li tag  shows side by side */
+    display: inline-block;
+}
+ul li a{
+	/* styling a tag navigation bar white background */
+    text-decoration:none ;
+    background-color: #0c0b0b;
+    font-weight: bold;
+    color: #fff;
+    padding: 10px 25px;
+    border: 4px solid transparent;
+    transition: 0.6s ease;
+	border-radius: 50px;
+}
+ul li a:hover{
+	/* styling a tag navigation bar hovering effect */
+    background: linear-gradient(to bottom, #ff6600 0%, #ff0066 100%);
+    color: #fff;
+	}
+ul li:hover ul {
+  box-shadow: 0px 3px 5px 2px #EBECF1;
+  visibility: visible;
+  opacity: 1;
+}
+ul li:hover ul li a {
+  color: #fff;
+}
+ul li.active a{
+    background: linear-gradient(to bottom, #ff6600 0%, #ff0066 100%);
+    color: #fff;
+}
+.logo img{
+	/* styling a logo and defining the logo */
+    float: left;
+    width: 160px;
+    height: auto;
+}
+.main{
+	/* website is shown in middle */
+    max-width: 1400px;
+    margin: auto;
+}
+.title{
+	/* Title is positioning shown in middle */
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.title h1{
+	/* website is shown in middle */
+    font-family: sans-serif;
+    color: #fff;
+    font-size: 70px;
+} 
+.trick-title1{
+	/* Title is positioning shown in middle */
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 24%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.trick-title1{
+	/* website is shown in middle */
+    font-family: sans-serif;
+    color: #fff;
+    font-size: 20px;
+} 
+.trick-title2{
+	/* Title is positioning shown in middle */
+    position: absolute;
+    text-align:justify;
+    width: 100%;
+    top: 60%;
+    left: 60%;
+    transform: translate(-50%,-50%);
+}
+.trick-title2{
+	/* website is shown in middle */
+    font-family: sans-serif;
+    color: #fff;
+    font-size: 25px;
+} 
+.trick-title2 p{
+    font-size: 20px;
+}
+.akm{
+    position: absolute;
+    top: 340px;
+    right:170px;
+}
+.akm img{
+    max-height: 300px;
+    max-width: 450px;
+    width: 450px;
+    height: 500px;
+    border-radius: 20px;
+}
+.scrollbar{
+    position: absolute;
+    bottom: 50px;
+    right: 600px;
+    font-weight: bold;
+    font-size: large;
+}
+.weapontable1{
+	/* Title is positioning shown in middle */
+    position: absolute;
+    top: 225px;
+    left: 170px;
+    transform: translate(-300%,-50%);    
+    border:5px solid red;
+    padding: 30px;
+}
+.weapontable{
+	/* website is shown in middle */
+    font-family: sans-serif;
+    border-collapse: collapse;
+    color: #fff;
+    font-size: 20px;
+}
+.weapontable tr:hover{
+    background-color: brown;
+}
+.weapontable tr{
+    font-weight: bold;
+    background-color: #dddddd;
+    color: black;
+}
+.weapontable td{
+    font-weight: bold;
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+.weapontable th{
+    font-weight: bold;
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+.head{
+    position: absolute;
+    top: 325px;
+    left:500px;
+}
+.head img{
+    max-height: 170px;
+    max-width: 400px;
+    width: 400px;
+    height: 180px;
+    border-radius: 20px;
+}
+.body{
+    position: absolute;
+    top: 520px;
+    left:500px;
+}
+.body img{
+    max-height: 170px;
+    max-width: 400px;
+    width: 400px;
+    height: 180px;
+    border-radius: 20px;
+}

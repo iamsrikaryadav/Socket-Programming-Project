@@ -1,0 +1,88 @@
+body {
+  background: #f3f3f3;
+  font-family: sans-serif;
+ 
+}
+ 
+.navigationBar {
+  background-color: #0c0b0b;
+  top: 10px;
+  left: 50%;
+  display: inline-block;
+  position: absolute;
+  transform: translateX(-50%);
+  border-radius: 50px;
+}
+#logo {
+float: left;
+color: #ecf0f1;
+font-size: 17px;
+margin-top: 12px;
+margin-left: 42px;
+font-family: sans-serif;
+}
+.logo img{
+    float: left;
+    width: 150px;
+    height: auto;
+}
+.main{
+    max-width: 1200px;
+    margin: auto;
+ul {
+  margin: 0;
+  padding: 0 30px;
+  list-style-type: none;
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+}
+ul li:not(:last-child) {
+  margin-right: 45px;
+}
+ul li {
+  padding:10px;
+  border: 1px solid transparent;
+  transition: background 0.2s;
+  border-radius: 5px;
+  
+}
+ul li a {
+  color: #fff;
+  text-transform: capitalize;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+ul li ul {
+  background: #5f5454;
+  position: absolute;
+  border-radius: 5px;
+  display: block;
+  margin: 12px -12px;
+  padding: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+ul li ul li {
+  width: calc(100% - 20px);
+  margin: -2px 0 0 -2px;
+  line-height: 1.2;
+}
+ul li ul li a {
+  color: #fff;
+}
+ul li:hover {
+  background: linear-gradient(to bottom, #ff6600 0%, #ff0066 100%);
+}
+ul li:hover a {
+  color: #fff;
+}
+ul li:hover ul {
+  box-shadow: 0px 3px 5px 2px #EBECF1;
+  visibility: visible;
+  opacity: 1;
+}
+ul li:hover ul li a {
+  color: #fff;
+}
