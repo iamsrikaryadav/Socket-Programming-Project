@@ -25,15 +25,25 @@ def handle_request(request):
     headers = request.split('\n')
     # print(headers[0].split())
     filename = headers[0].split()[1]
+
     if filename == '/':
         filename = '/index.html'
 
     try:
+        try:
+            file_ext = filename.split(".")[1]
+        except:
+            file_ext="txt"
+        # print(file_ext)
+        if file_ext not in ["txt","html"]:
+            return 'HTTP/1.0 415 Unsupported Media Type\n\nThe server will not accept the request, because the media type is not supported'
         fin = open('htmldocs' + filename,encoding='utf-8')
         content = fin.read()
         fin.close()
-
+        
         response = 'HTTP/1.0 200 OK\n\n' + content
+    
+
     except FileNotFoundError:
         response = 'HTTP/1.0 400 NOT FOUND\n\nFile Not Found'
     
