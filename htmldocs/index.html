@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Socket programming project: Web Server</title>
+</head>
+<body>
+
+<h1>Socket programming project: Web Server</h1>
+<h2>Introduction:</h2>
+<p>This week 2 socket programming project gives you experience in developing concurrent network applications. The client program (the browsers) communicates with the server program (your web server) using HyperText Transport Protocol.</p>
+
+<h2>Why a web server?</h2>
+<ol>
+  <li>Web browsing that we experience today is a combination of multiple layers and technologies (such as wifi, ISPs, routing, DNS, reliable transport etc.). At a higher level a webserver is a typical socket program that is capable of handling multiple client requests.</li>
+  <li>This project helps you think about numerous tasks that a networking application does for making a web server.</li>
+  <li>This will remove the mystery/magic of what the network does ‘underneath’ your web browsing.</li>
+  <li>In building this project, you will become familiar with HTTP.</li>
+</ol>
+
+<h2>Implementation Requirements Overview:</h2>
+<p>Web server socket program(s) must recognize HTTP keywords as  commands. Your server will implement HEAD, GET (both needed for HTTP 1.1 general purpose server compliance) along with the following requirements:</p>
+
+<ul>
+  <li>GET – requests a specified resource; it should not have any significance other than retrieval.</li>
+  <li>HEAD – asks for an identical response as GET, without the actual body—no bytes from the requested resource.</li>
+  <li>For all other commands, your server must return “501 Method Unimplemented.”</li>
+  <li>If you are unable to implement one of the above commands (perhaps you ran out of time), your server must return the error response “501 Method Unimplemented,” rather than failing silently (or not so silently).</li>
+  <li>While you develop, you may want to just return this error response always until features are implemented-no matter what you will have a valid HTTP 1.1 server. Your server should be able to support multiple clients concurrently. </li>
+  <li>While the server is waiting for a client to send the next command, it should be able to handle inputs from other clients. Also, your server should not hang if a client sends only a partial request. </li>
+  <li>In general, concurrency can be achieved using either select() or multiple threads. Your code needs to use select() or multiple threads as adding support for multiple clients at once (Note: Develop measures such that you can decide which approach is better for your web server).</li>
+  <li>As a web server, your implementation should be robust to client errors. You are implementing a real, standards-compliant web server. </li>
+</ul>  
+
+<h2>Step by Step Guide for Checkpoints:</h2>
+<ol>
+  <li>
+    Checkpoint 1: Valid Request Handling:<br>
+    &emsp;
+    a. Echoes to valid requests from Chrome, Firefox and Edge.<br>
+    &emsp;&emsp; &nbsp;i. Create socket with an IP address and bind it with a port number<br>
+    &emsp;&emsp;&nbsp;ii. Start server and listen to a client's request.<br>
+    &emsp;&emsp;iii. On connection requests from clients, accept the connection and start serving the client requests.<br>
+    &emsp;&emsp;iv. Provide a response as echo of the request made by the client.<br>
+  </li>
+  <li>Checkpoint 2: Respond properly to any HTTP 1.1 request with HEAD, GET:<br>
+    &emsp;a. Checkpoint 1 Should be completed<br>
+    &emsp;b. Responds to single client<br>
+    &emsp;&emsp;&nbsp;&nbsp;i. By default supports text as content media type<br>
+    &emsp;&emsp;&nbsp;ii. On connect default response from server should be index.html page<br>
+    &emsp;&emsp;iii. Fetch data from the server based on requests made by the client as GET or HEAD.<br>
+    &emsp;c. Provide correct error code to requests made<br>
+    &emsp;&emsp;&nbsp;&nbsp;i. 400 Bad Request: Server does not recognize the URL. Double check to see that you have typed it correctly.<br>
+    &emsp;&emsp;&nbsp;ii. 403 Forbidden Pages: You are not being allowed access, for whatever reason. (Example: log page)<br>
+    &emsp;&emsp;iii. 415 Unsupported Media Type: The server will not accept the request, because the media type is not supported<br>
+
+    
+  </li>
+  <li>Checkpoint 3: Display files in directory as hyperlink and trigger GET to fetch data when clicked<br>
+    &emsp;a. Checkpoint 2 Should be completed<br>
+    &emsp;b. Responds to single client<br>
+    &emsp;&emsp;&nbsp;i.If the index.html page is not present in the server directory, the html page should be created based on files or directories present in the directory as anchor tags to trigger GET when performed click action.<br>
+    &emsp;&emsp;ii.Should support content media type of Image and PDF<br>
+  </li>
+  <li>Checkpoint 4: Support multiple clients:<br>
+    &emsp;a. Checkpoint 3 Should be completed<br>
+    &emsp;b. Achieve concurrency<br>
+    &emsp;&emsp;i. Accepts/replies to requests from concurrent clients at the same time using select or multithreading<br>
+  </li>
+  <li>Checkpoint 5: Measuring web server performance<br>
+    &emsp;a. Checkpoint 4 Should be completed<br>
+    &emsp;b. Write down how many clients your web server can handle at same time.<br>
+    &emsp;c. How much time does your web server take to serve one client.<br>
+    &emsp;d. Can you improve your web server performance (Time, No of Concurrent Clients)<br>
+    &emsp;e. Maintain a number of TCP connections (States) your web server is handling.<br>
+    &emsp;f. Above metrics can either be recorded in log files or display it on a web server console.<br>
+  </li>
+</ol>
+<h2>Evaluation Criteria:</h2>
+<ol>
+  <li>Daily status: 20 marks X 5 days</li>
+&emsp;a. Scrum  - 10 marks.<br>
+&emsp;b. Checkpoint complete/incomplete status - 10 marks.<br>
+  <li>Mid review: 100 marks</li>
+  &emsp;a. Functionality - 80 marks<br>
+  &emsp;&emsp;i. Complete checkpoints upto checkpoint 3 - 20 marks.<br>
+  <li>Final review: 100 marks</li>
+  &emsp;a. Functionality upto checkpoint 5 - 25 marks<br>
+  &emsp;b. Metrics, testing, robustness, code quality, connections table- 25 marks<br>
+  &emsp;c. Demo and completeness - 25 marks<br>
+  &emsp;d. Documentation - 25 marks<br>
+  &emsp;&emsp;i. Introduction<br>
+  &emsp;&emsp;ii. Approach / Methodology<br>
+  &emsp;&emsp;iii. Tests , metric , which method gives best efficiency<br>
+  &emsp;&emsp;iv. Screen shots<br>
+  &emsp;&emsp;v. Appendix: Code , library , comments<br>
+  &emsp;&emsp;vi. How to evaluate<br>
+</ol>
+<h2>Deadline and Deliverables:</h2>
+<ol>
+  <li>Each checkpoint is given 1 day for completion and checkpoints are reviewed regularly in daily status meetings.</li>
+<li>Students must submit code along with a report in form of documentation.</li>
+<li>Document must have following elements<br>
+  &emsp;a. Introduction<br>
+    &emsp;b. Approach / Methodology<br>
+    &emsp;c. Tests , metric , which method gives best efficiency<br>
+    &emsp;d. Screen shots<br>
+    &emsp;e. Appendix: Code , library , comments<br>
+    &emsp;f. How to evaluate<br>
+</li>
+<li>All deliverables are to be submitted in autolab.</li>
+<li>Soft deadlines and hard deadlines are applicable for project modules. With permission of your mentor, the soft deadline can be adjusted. You can move on to the next checkpoint if you are done with the current day checkpoint.</li>
+<li>Submissions Naming convention: your_mail + ”_CNF_PROJECT_DAY_” + no + “.zip”</li>
+</ol>
+<h2>References:</h2>
+<ol>
+  <li><a href="https://docs.google.com/presentation/d/1pM5wvsfe5FClIN_aC0rEwUkyVCYvO8G6TjePPnHuuK4/edit?usp=sharing">Week 2 Project Orientation Presentation:</a></li>
+  <li><a href="https://www.ietf.org/rfc/rfc2616.txt">RFC 2616 - Hypertext Transfer Protocol -- HTTP/1.1 URL: </a></li>
+  <li><a href="https://beej.us/guide/bgnet/html/index-wide.html">Beej's Guide to Network Programming, Using Internet Sockets, Brian “Beej Jorgensen” Hall URL:</a></li>
+  <li><a href="https://book.systemsapproach.org/index.html">Computer Networks: A Systems Approach, Larry Peterson and Bruce Davie, URL:</a></li>
+  <li><a href="https://www.cs.cmu.edu/~prs/15-441-F16/project1/project1.pdf">CMU Liso Web Server (includes CGI and HTTPS): project description URL: </a></li>
+  <li><a href="https://tools.ietf.org/html/rfc2616">RFC 2616 - Hypertext Transfer Protocol -- HTTP/1.1</a></li>
+</ol>
+</body>
+</html>
